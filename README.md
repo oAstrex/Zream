@@ -1,4 +1,4 @@
-# StreamHub
+# ZREAM!!!!
 
 A modern media streaming hub that combines TMDB movie data, Jackett torrent indexing, and TorBox cloud downloading to create a seamless streaming experience with real-time torrent cache detection.
 
