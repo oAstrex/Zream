@@ -40,8 +40,8 @@ A modern media streaming hub that combines TMDB movie data, Jackett torrent inde
 
 1. **Clone and install dependencies**
    ```bash
-   git clone https://github.com/oAstrex/StreamHub.git
-   cd StreamHub
+   git clone https://github.com/oAstrex/Zream.git
+   cd Zream
    npm install
    ```
 
@@ -53,7 +53,7 @@ A modern media streaming hub that combines TMDB movie data, Jackett torrent inde
    TMDB_BEARER=your_tmdb_v4_bearer_token
 
    # Jackett Configuration (Required)
-   JACKETT_HOST=http://100.110.111.105:9117
+   JACKETT_HOST=http://jacket_host_ip/url:9117
    JACKETT_API_KEY=your_jackett_api_key
 
    # TorBox Configuration (Optional - enables cache detection)
