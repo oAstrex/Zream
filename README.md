@@ -16,14 +16,14 @@ A modern media streaming hub that combines TMDB movie data, Jackett torrent inde
 
 ```
 ┌─────────────────┐    ┌─────────────────┐    ┌─────────────────┐
-│   React Frontend │◄──►│  Express API    │◄──►│     Jackett     │
+│  React Frontend │◄──►│   Express API   │◄──►│     Jackett     │
 │   (Port 5173)   │    │   (Port 4000)   │    │   (Indexers)    │
 └─────────────────┘    └─────────────────┘    └─────────────────┘
                               │
                               ▼
                        ┌─────────────────┐    ┌─────────────────┐
                        │      TMDB       │    │     TorBox      │
-                       │   Movie Data    │    │  Cloud Storage  │
+                       │   Movie Data    │    │ Seedbox Manager │
                        └─────────────────┘    └─────────────────┘
 ```
 
