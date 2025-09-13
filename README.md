@@ -273,7 +273,7 @@ Cached torrents are visually highlighted with ⭐ indicators and sorted prominen
 
 ### Project Structure
 ```
-StreamHub/
+Zream/
 ├── src/
 │   ├── server.ts      # Main Express server
 │   ├── config.ts      # Environment configuration
@@ -315,7 +315,7 @@ npm run preview # Preview production build
 | `TMDB_BEARER` | ✅ | TMDB v4 API Bearer token |
 | `JACKETT_HOST` | ✅ | Jackett server URL |
 | `JACKETT_API_KEY` | ✅ | Jackett API key |
-| `TORBOX_API_TOKEN` | ❌ | TorBox API token (enables cache detection) |
+| `TORBOX_API_TOKEN` | ✅ | I mean unless you wanna use qBt or something |
 | `PORT` | ❌ | Backend server port (default: 4000) |
 
 ## 🚀 Production Deployment
@@ -326,11 +326,11 @@ npm run preview # Preview production build
 npm run build
 
 # Start with process manager
-pm2 start dist/server.js --name streamhub-backend
+pm2 start dist/server.js --name zream-backend
 
 # Or with systemd
-sudo systemctl enable streamhub-backend
-sudo systemctl start streamhub-backend
+sudo systemctl enable zream-backend
+sudo systemctl start zream-backend
 ```
 
 ### Frontend Deployment
@@ -340,14 +340,14 @@ cd frontend
 npm run build
 
 # Serve with nginx
-sudo cp -r dist/* /var/www/streamhub/
+sudo cp -r dist/* /var/www/zream/
 ```
 
 ### Docker Support
 ```yaml
 version: '3.8'
 services:
-  streamhub-backend:
+  zream-backend:
     build: .
     ports:
       - "4000:4000"
@@ -357,7 +357,7 @@ services:
       - JACKETT_API_KEY=${JACKETT_API_KEY}
       - TORBOX_API_TOKEN=${TORBOX_API_TOKEN}
 
-  streamhub-frontend:
+  zream-frontend:
     build: ./frontend
     ports:
       - "80:80"
@@ -404,7 +404,7 @@ Under the following terms:
 - **NonCommercial** — You may not use the material for commercial purposes
 - **ShareAlike** — If you remix or transform the material, you must distribute your contributions under the same license
 
-For more details, see the [full license text](https://creativecommons.org/licenses/by-nc-sa/4.0/).
+For more details, see the [license deed](https://creativecommons.org/licenses/by-nc-sa/4.0/).
 
 ## ⚖️ Legal Notice
 
@@ -414,10 +414,9 @@ For more details, see the [full license text](https://creativecommons.org/licens
 - Terms of service for all integrated services (TMDB, TorBox, indexers)
 - Applicable streaming and downloading regulations in their jurisdiction
 
-The developers of StreamHub do not encourage or condone piracy or copyright infringement. This tool is intended for legitimate use cases such as:
+The developers of Zream do not encourage or condone piracy or copyright infringement. This tool is intended for legitimate use cases such as:
 - Managing legally owned media collections
 - Downloading content that is in the public domain
-- Accessing content through legitimate subscription services
 
 ## 🙏 Acknowledgments
 
@@ -429,10 +428,10 @@ The developers of StreamHub do not encourage or condone piracy or copyright infr
 
 ## 📞 Support
 
-For issues and feature requests, please use the [GitHub issue tracker](https://github.com/oAstrex/StreamHub/issues).
+For issues and feature requests, please use the [GitHub issue tracker](https://github.com/oAstrex/Zream/issues).
 
-For general questions or discussions, feel free to open a [GitHub Discussion](https://github.com/oAstrex/StreamHub/discussions).
+For general questions or discussions, feel free to open a [GitHub Discussion](https://github.com/oAstrex/Zream/discussions).
 
 ---
 
-**StreamHub** - Your personal media streaming hub 🎬✨
+**Zream** - idk man watch stuff 🎬✨
