@@ -70,6 +70,35 @@ app.get("/api/tv/popular", async (req, res, next) => {
   } catch (e) { next(e); }
 });
 
+app.get("/api/tv/discover", async (req, res, next) => {
+  try {
+    const with_genres = getStr(req.query.with_genres);
+    const sort_by = getStr(req.query.sort_by) || "first_air_date.desc";
+    const page = getNum(req.query.page) || 1;
+    const first_air_date_year = getNum(req.query.first_air_date_year);
+    res.json(await TMDB.discoverTV({
+      with_genres,
+      sort_by,
+      page,
+      first_air_date_year
+    }));
+  } catch (e) { next(e); }
+});
+
+app.get("/api/tv/top-rated", async (req, res, next) => {
+  try {
+    const page = getNum(req.query.page) || 1;
+    res.json(await TMDB.topRatedTV(page));
+  } catch (e) { next(e); }
+});
+
+app.get("/api/tv/on-air", async (req, res, next) => {
+  try {
+    const page = getNum(req.query.page) || 1;
+    res.json(await TMDB.onAirTV(page));
+  } catch (e) { next(e); }
+});
+
 
 app.post("/api/sources/search", async (req, res) => {
   const { title, year, extra } = req.body || {};
