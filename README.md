@@ -50,7 +50,7 @@ A modern media streaming hub that combines TMDB movie data, Jackett torrent inde
    Create a `.env` file in the root directory:
    ```env
    # TMDB Configuration (Required)
-   TMDB_BEARER=your_tmdb_v4_bearer_token
+   TMDB_BEARER=your_tmdb_v4_read_only_token
 
    # Jackett Configuration (Required)
    JACKETT_HOST=http://jacket_host_ip/url:9117
