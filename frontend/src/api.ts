@@ -8,6 +8,9 @@ export interface MediaItem {
   backdrop_path: string;
   release_date?: string;
   first_air_date?: string;
+  genre_ids?: number[];
+  vote_average?: number;
+  type?: 'movie' | 'show';
 }
 
 export interface PaginatedResponse<T> {
@@ -54,6 +57,30 @@ async function api<T>(path: string, options?: RequestInit): Promise<T> {
 
 export const getPopularMovies = (page = 1) =>
   api<PaginatedResponse<MediaItem>>(`/api/movies/popular?page=${page}`);
+
+export const getPopularTVShows = (page = 1) =>
+  api<PaginatedResponse<MediaItem>>(`/api/tv/popular?page=${page}`);
+
+export const discoverMovies = (params: Record<string, string | number>) => {
+  const searchParams = new URLSearchParams();
+  Object.entries(params).forEach(([key, value]) => {
+    if (value !== undefined && value !== '') {
+      searchParams.append(key, String(value));
+    }
+  });
+  return api<PaginatedResponse<MediaItem>>(`/api/movies/discover?${searchParams.toString()}`);
+};
+
+// TODO: Add TV discover endpoint on backend
+export const discoverTVShows = (params: Record<string, string | number>) => {
+  const searchParams = new URLSearchParams();
+  Object.entries(params).forEach(([key, value]) => {
+    if (value !== undefined && value !== '') {
+      searchParams.append(key, String(value));
+    }
+  });
+  return api<PaginatedResponse<MediaItem>>(`/api/tv/discover?${searchParams.toString()}`);
+};
 
 export const searchSources = (title: string, year?: number) =>
   api<JackettSearchResponse>('/api/sources/search', {
